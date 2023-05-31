@@ -48,10 +48,36 @@ class Login extends Component {
         navigate(`${redirectPath}`);
     }
 
-    processLogin = () => {
-        const { username, password } = this.state;
+    // processLogin = () => {
+    //     const { username, password } = this.state;
 
-        const { adminLoginSuccess, adminLoginFail } = this.props;
+    //     const { adminLoginSuccess, adminLoginFail } = this.props;
+    //     let loginBody = {
+    //         username: 'admin',
+    //         password: '123456'
+    //     }
+    //     //sucess
+    //     let adminInfo = {
+    //         "tlid": "0",
+    //         "tlfullname": "Administrator",
+    //         "custype": "A",
+    //         "accessToken": "eyJhbGciOiJIU"
+    //     }
+
+    //     adminLoginSuccess(adminInfo);
+    //     this.refresh();
+    //     this.redirectToSystemPage();
+    //     try {
+    //         adminService.login(loginBody)
+    //     } catch (e) {
+    //         console.log('error login : ', e)
+    //     }
+
+    // }
+    processLogin = async () => {
+        const { username, password } = this.state;
+    
+        const { userLoginSuccess, userLoginFail } = this.props;
         let loginBody = {
             username: 'admin',
             password: '123456'
@@ -63,17 +89,17 @@ class Login extends Component {
             "custype": "A",
             "accessToken": "eyJhbGciOiJIU"
         }
-
-        adminLoginSuccess(adminInfo);
-        this.refresh();
-        this.redirectToSystemPage();
+    
         try {
-            adminService.login(loginBody)
+            await adminService.login(loginBody);
+            userLoginSuccess(adminInfo);
+            this.refresh();
+            this.redirectToSystemPage();
         } catch (e) {
-            console.log('error login : ', e)
+            console.log('error login : ', e);
         }
-
     }
+    
 
     handlerKeyDown = (event) => {
         const keyCode = event.which || event.keyCode;
@@ -165,9 +191,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         navigate: (path) => dispatch(push(path)),
-        adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
-        adminLoginFail: () => dispatch(actions.adminLoginFail()),
+        // adminLoginSuccess: (adminInfo) => dispatch(actions.adminLoginSuccess(adminInfo)),
+        // userLoginFail: () => dispatch(actions.adminLoginFail()),
+        userLoginSuccess: (userInfor) => dispatch(actions.userLoginSuccess(userInfor)),
     };
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
