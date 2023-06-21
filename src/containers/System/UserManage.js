@@ -69,9 +69,9 @@ class UserManage extends Component {
       )
     })
     }
-    <td>Alfreds Futterkiste</td>
+    {/* <td>Alfreds Futterkiste</td>
     <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>Germany</td> */}
 
 </table>
 
