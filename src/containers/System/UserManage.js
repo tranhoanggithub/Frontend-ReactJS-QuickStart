@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './UserManage.scss'
-import { getAllUsers } from '../../services/userService';
+import { getAllUsers ,createNewUserService } from '../../services/userService';
 import ModalUser from './ModalUser';
 class UserManage extends Component {
     constructor(props){
@@ -18,15 +18,7 @@ class UserManage extends Component {
     // }
 
     async componentDidMount() {
-      let response = await getAllUsers('All');
-      if(response && response.errCode === 0 ){
-        this.setState({
-          arrUsers: response.users
-        },()=>{
-          console.log('check state user 2', this.state.arrUsers);
-        });
-        console.log('check state user', this.state.arrUsers);
-      }
+      await this.getAllUsersFromReact();
     } 
     handleAddNewUser = ()=> {
       this.setState({
@@ -38,6 +30,32 @@ class UserManage extends Component {
       this.setState({
         isOpenModalUser: !this.state.isOpenModalUser,
       })
+    }
+
+    getAllUsersFromReact = async()=> {
+      let response = await getAllUsers('All');
+      if(response && response.errCode === 0 ){
+        this.setState({
+          arrUsers: response.users
+        })
+
+      }
+    }
+    createNewUser = async (data)=> {
+      try{
+        let response = await createNewUserService(data);
+        console.log('response create user:', response)
+        if(response && response.errCode!==0){
+          alert(response.errMessage)
+        }else{
+          await this.getAllUsersFromReact();
+          this.setState({
+            isOpenModalUser : false
+          });
+        }
+      }catch(e){
+        console.log(e)
+      }
     }
     // Life cycle 
     // Run component:
@@ -55,7 +73,8 @@ class UserManage extends Component {
               <ModalUser
               isOpen={this.state.isOpenModalUser}
               toggleFromParent={this.toggleUserModal}
-              test = {'abc'}
+              createNewUser = {this.createNewUser}
+              // test = {'abc'}
               
               />
                 <div className="title text-center">Manage users with Eric</div>
@@ -64,6 +83,7 @@ class UserManage extends Component {
                 </div>
                 <div className="users-table mt-4 mx-3">
                 <table id="customers">
+                <tbody>
   <tr>
     <th>Email</th>
     <th>First Name</th>
@@ -71,7 +91,8 @@ class UserManage extends Component {
     <th>Address</th>
     <th>Actions</th>
   </tr>
-    {arrUsers && arrUsers.map((item , index)=>{
+
+  {arrUsers && arrUsers.map((item , index)=>{
       console.log('eric check map', item , index)
       return(
         
@@ -85,13 +106,15 @@ class UserManage extends Component {
           <i class="fa-solid fa-house"></i>
           {/* <i class="fas fa-pencil-alt"></i>
           <i class="fa-sharp fa-regular fa-trash"></i> */}
-           <button className="btn-edit "><i class="fas fa-edit"></i></button>
-           <button className="btn-delete"><i class="fa-sharp fa-regular fa-trash"></i></button>
+           <button className="btn-edit "><i className="fas fa-edit"></i></button>
+           <button className="btn-delete"><i className="fa-sharp fa-regular fa-trash"></i></button>
           </td>
         </tr>
       )
     })
     }
+  </tbody>
+
     {/* <td>Alfreds Futterkiste</td>
     <td>Maria Anders</td>
     <td>Germany</td> */}
