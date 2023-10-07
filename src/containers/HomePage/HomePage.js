@@ -10,8 +10,10 @@ class HomePage extends Component {
         return (
             <div>
                 <HomeHeader />
+                <div style={{height:'500px'}}></div>
                 <Specialty />
-                <div style={{height:'300px'}}></div>
+
+
             </div>
         );
     }
