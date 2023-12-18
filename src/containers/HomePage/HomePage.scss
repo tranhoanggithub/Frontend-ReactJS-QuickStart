@@ -33,36 +33,48 @@
 }
 
 .section-share {
-    &.section-specialty{
+    &.section-specialty {
         background: #f5f5f5;
     }
-    &.section-outstanding-doctor{
+
+    &.section-outstanding-doctor {
         background: #f5f5f5;
     }
+
+    &.section-about {
+        height: 500px !important;
+        border-top: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f5f5f5;
+    }
+
     .section-body {
 
 
         .section-customize {
             .bg-image {
                 width: 278px;
-                height: 150px;               
+                height: 150px;
                 background-position: center center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-color: #eee;
-                &.section-specialty{
+
+                &.section-specialty {
                     background-image: url('../../assets/specialty/co-xuong-khop.jpg');
                 }
-                &.section-medical-facility{
+
+                &.section-medical-facility {
                     background-image: url('../../assets/medical-facility/113208-than-kinh.jpg');
                 }
-                &.section-outstading-doctor{
+
+                &.section-outstading-doctor {
                     background-image: url('../../assets/outstanding-doctor/083122lo-go-viet-duc.jpg');
                     width: 120px;
                     height: 120px;
                     border-radius: 50%;
                 }
-                &.section-handbook{
+
+                &.section-handbook {
                     background-image: url('../../assets/handbook/094234-pk-san-phu-khoa-ngoc-lan.png');
                 }
 
@@ -75,6 +87,7 @@
 
     }
 }
+
 .section-share {
     height: 330px;
     background: #f5f5f5;
@@ -119,17 +132,55 @@
 
 }
 
-.section-outstanding-doctor{
-    .outer-bg{
+.section-outstanding-doctor {
+    .outer-bg {
         display: flex;
         justify-content: center;
         margin-bottom: 10px;
     }
+
     .section-customize {
         padding: 5px;
+
         .customize-border {
             border: 1px solid orange;
             padding: 20px;
         }
+    }
+}
+
+.home-footer {
+    text-align: center;
+    padding-top: 8px;
+
+    a {
+        text-decoration: unset;
+    }
+
+}
+
+.section-about {
+    margin: 0 100px;
+    .section-about-header {
+        padding: 20px 10px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .section-about-content{
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        .content-left{  
+            width: 60%;
+        }
+        .content-right{
+
+            width: 40%;
+            p{
+                text-align: justify;
+                font-style: italic;
+                padding: 15px;
+            }
+        }       
     }
 }
