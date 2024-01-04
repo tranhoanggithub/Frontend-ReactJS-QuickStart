@@ -6,7 +6,7 @@ const handleLoginApi = (email, password) => {
 const getAllUsers = (inputId) =>{
     //template string
     return axios.get(`/api/get-all-users?id=${inputId}`)
-}
+    }
 
 const createNewUserService = (data)=>{
     console.log('check data from server', data)
