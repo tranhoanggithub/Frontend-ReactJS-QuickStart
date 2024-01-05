@@ -1,23 +1,23 @@
 import axios from "../axios"
 const handleLoginApi = (email, password) => {
-    return axios.post('/api/login', {email, password});
+    return axios.post('/api/login', { email, password });
 }
 
-const getAllUsers = (inputId) =>{
+const getAllUsers = (inputId) => {
     //template string
     return axios.get(`/api/get-all-users?id=${inputId}`)
-    }
-
-const createNewUserService = (data)=>{
-    console.log('check data from server', data)
-    return axios.post('/api/create-new-user',data)
 }
 
-const deleteUserService = (userId) =>{
+const createNewUserService = (data) => {
+    console.log('check data from server', data)
+    return axios.post('/api/create-new-user', data)
+}
+
+const deleteUserService = (userId) => {
     // return axios.delete('/api/delete-user',{id: userId})
-    return axios.delete('/api/delete-user',{
-        data:{
-            id:userId,
+    return axios.delete('/api/delete-user', {
+        data: {
+            id: userId,
         }
     })
 }
@@ -25,5 +25,8 @@ const deleteUserService = (userId) =>{
 const editUserService = (inputData) => {
     return axios.put('/api/edit-user', inputData);
 }
-export {handleLoginApi , getAllUsers,createNewUserService , deleteUserService , editUserService} 
+const getAllCodeService = (inputType) => {
+    return axios.get(`/api/allcode?type=${inputType}`)
+}
+export { handleLoginApi, getAllUsers, createNewUserService, deleteUserService, editUserService, getAllCodeService }
 
