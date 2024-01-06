@@ -25,7 +25,7 @@ class HomePage extends Component {
         return (
             <div>
                 <HomeHeader />
-                <div style={{height:'500px'}}></div>
+                {/* <div style={{height:'500px'}}></div> */}
                 <Specialty settings = {settings} />
                 <MedicalFacility settings = {settings}/>
                 <OutStandingDoctor settings = {settings}/>
