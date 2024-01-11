@@ -29,8 +29,8 @@
               "Μάρ",
               "Απρ",
               "Μάι",
-              "Ιούν",
-              "Ιούλ",
+              "Ιού",
+              "Ιού",
               "Αύγ",
               "Σεπ",
               "Οκτ",
@@ -61,10 +61,6 @@
       scrollTitle: "Μετακυλήστε για προσαύξηση",
       toggleTitle: "Κάντε κλικ για αλλαγή",
       amPM: ["ΠΜ", "ΜΜ"],
-      yearAriaLabel: "χρόνος",
-      monthAriaLabel: "μήνας",
-      hourAriaLabel: "ώρα",
-      minuteAriaLabel: "λεπτό",
   };
   fp.l10ns.gr = Greek;
   var gr = fp.l10ns;

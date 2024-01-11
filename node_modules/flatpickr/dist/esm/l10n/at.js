@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Austria = {
+export const Austria = {
     weekdays: {
         shorthand: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
         longhand: [
@@ -51,7 +51,6 @@ export var Austria = {
     rangeSeparator: " bis ",
     scrollTitle: "Zum Ändern scrollen",
     toggleTitle: "Zum Umschalten klicken",
-    time_24hr: true,
 };
 fp.l10ns.at = Austria;
 export default fp.l10ns;

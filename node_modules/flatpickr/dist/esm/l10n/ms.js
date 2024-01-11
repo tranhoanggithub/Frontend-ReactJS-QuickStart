@@ -1,12 +1,20 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Malaysian = {
+export const Malaysian = {
     weekdays: {
-        shorthand: ["Aha", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
-        longhand: ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+        shorthand: ["Min", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
+        longhand: [
+            "Minggu",
+            "Isnin",
+            "Selasa",
+            "Rabu",
+            "Khamis",
+            "Jumaat",
+            "Sabtu",
+        ],
     },
     months: {
         shorthand: [
@@ -39,7 +47,7 @@ export var Malaysian = {
         ],
     },
     firstDayOfWeek: 1,
-    ordinal: function () {
+    ordinal: () => {
         return "";
     },
 };

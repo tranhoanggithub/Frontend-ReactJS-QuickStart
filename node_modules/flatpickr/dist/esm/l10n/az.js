@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Azerbaijan = {
+export const Azerbaijan = {
     weekdays: {
         shorthand: ["B.", "B.e.", "Ç.a.", "Ç.", "C.a.", "C.", "Ş."],
         longhand: [
@@ -47,7 +47,7 @@ export var Azerbaijan = {
         ],
     },
     firstDayOfWeek: 1,
-    ordinal: function () {
+    ordinal: () => {
         return ".";
     },
     rangeSeparator: " - ",

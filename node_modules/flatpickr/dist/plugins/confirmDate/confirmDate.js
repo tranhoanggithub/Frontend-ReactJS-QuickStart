@@ -58,13 +58,9 @@
                 return {};
             return __assign({ onKeyDown: function (_, __, ___, e) {
                     var eventTarget = getEventTarget(e);
-                    var isTargetLastFocusableElement = (!fp.config.time_24hr && eventTarget === fp.amPM) ||
-                        (fp.config.time_24hr &&
-                            ((fp.config.enableSeconds && eventTarget === fp.secondElement) ||
-                                (!fp.config.enableSeconds && eventTarget === fp.minuteElement)));
                     if (fp.config.enableTime &&
                         e.key === "Tab" &&
-                        isTargetLastFocusableElement) {
+                        eventTarget === fp.amPM) {
                         e.preventDefault();
                         confirmContainer.focus();
                     }

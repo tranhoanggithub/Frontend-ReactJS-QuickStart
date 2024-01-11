@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Catalan = {
+export const Catalan = {
     weekdays: {
         shorthand: ["Dg", "Dl", "Dt", "Dc", "Dj", "Dv", "Ds"],
         longhand: [
@@ -46,8 +46,8 @@ export var Catalan = {
             "Desembre",
         ],
     },
-    ordinal: function (nth) {
-        var s = nth % 100;
+    ordinal: (nth) => {
+        const s = nth % 100;
         if (s > 3 && s < 21)
             return "è";
         switch (s % 10) {
@@ -64,7 +64,6 @@ export var Catalan = {
         }
     },
     firstDayOfWeek: 1,
-    rangeSeparator: " a ",
     time_24hr: true,
 };
 fp.l10ns.cat = fp.l10ns.ca = Catalan;

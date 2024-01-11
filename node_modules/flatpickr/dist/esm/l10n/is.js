@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Icelandic = {
+export const Icelandic = {
     weekdays: {
         shorthand: ["Sun", "Mán", "Þri", "Mið", "Fim", "Fös", "Lau"],
         longhand: [
@@ -46,7 +46,7 @@ export var Icelandic = {
             "Desember",
         ],
     },
-    ordinal: function () {
+    ordinal: () => {
         return ".";
     },
     firstDayOfWeek: 1,

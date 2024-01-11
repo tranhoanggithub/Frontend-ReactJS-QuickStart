@@ -10,7 +10,6 @@ declare const _default: {
     bs?: CustomLocale | undefined;
     ca?: CustomLocale | undefined;
     cat?: CustomLocale | undefined;
-    ckb?: CustomLocale | undefined;
     cs?: CustomLocale | undefined;
     cy?: CustomLocale | undefined;
     da?: CustomLocale | undefined;
@@ -29,7 +28,6 @@ declare const _default: {
     hi?: CustomLocale | undefined;
     hr?: CustomLocale | undefined;
     hu?: CustomLocale | undefined;
-    hy?: CustomLocale | undefined;
     id?: CustomLocale | undefined;
     is?: CustomLocale | undefined;
     it?: CustomLocale | undefined;
@@ -45,7 +43,6 @@ declare const _default: {
     ms?: CustomLocale | undefined;
     my?: CustomLocale | undefined;
     nl?: CustomLocale | undefined;
-    nn?: CustomLocale | undefined;
     no?: CustomLocale | undefined;
     pa?: CustomLocale | undefined;
     pl?: CustomLocale | undefined;

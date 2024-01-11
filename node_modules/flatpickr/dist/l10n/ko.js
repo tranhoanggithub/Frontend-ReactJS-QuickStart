@@ -56,7 +56,6 @@
           return "일";
       },
       rangeSeparator: " ~ ",
-      amPM: ["오전", "오후"],
   };
   fp.l10ns.ko = Korean;
   var ko = fp.l10ns;

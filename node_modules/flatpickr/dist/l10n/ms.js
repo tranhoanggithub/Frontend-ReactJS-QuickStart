@@ -11,8 +11,16 @@
       };
   var Malaysian = {
       weekdays: {
-          shorthand: ["Aha", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
-          longhand: ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+          shorthand: ["Min", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
+          longhand: [
+              "Minggu",
+              "Isnin",
+              "Selasa",
+              "Rabu",
+              "Khamis",
+              "Jumaat",
+              "Sabtu",
+          ],
       },
       months: {
           shorthand: [

@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Indonesian = {
+export const Indonesian = {
     weekdays: {
         shorthand: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
         longhand: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],
@@ -39,7 +39,7 @@ export var Indonesian = {
         ],
     },
     firstDayOfWeek: 1,
-    ordinal: function () {
+    ordinal: () => {
         return "";
     },
     time_24hr: true,

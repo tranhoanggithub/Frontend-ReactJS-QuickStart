@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Persian = {
+export const Persian = {
     weekdays: {
         shorthand: ["یک", "دو", "سه", "چهار", "پنج", "جمعه", "شنبه"],
         longhand: [
@@ -47,7 +47,7 @@ export var Persian = {
         ],
     },
     firstDayOfWeek: 6,
-    ordinal: function () {
+    ordinal: () => {
         return "";
     },
 };

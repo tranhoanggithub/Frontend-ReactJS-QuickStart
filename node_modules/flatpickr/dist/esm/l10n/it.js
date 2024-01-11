@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Italian = {
+export const Italian = {
     weekdays: {
         shorthand: ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
         longhand: [
@@ -47,7 +47,7 @@ export var Italian = {
         ],
     },
     firstDayOfWeek: 1,
-    ordinal: function () { return "°"; },
+    ordinal: () => "°",
     rangeSeparator: " al ",
     weekAbbreviation: "Se",
     scrollTitle: "Scrolla per aumentare",

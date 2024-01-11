@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Welsh = {
+export const Welsh = {
     weekdays: {
         shorthand: ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwe", "Sad"],
         longhand: [
@@ -47,7 +47,7 @@ export var Welsh = {
         ],
     },
     firstDayOfWeek: 1,
-    ordinal: function (nth) {
+    ordinal: (nth) => {
         if (nth === 1)
             return "af";
         if (nth === 2)

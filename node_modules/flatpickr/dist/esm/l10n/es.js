@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Spanish = {
+export const Spanish = {
     weekdays: {
         shorthand: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
         longhand: [
@@ -46,7 +46,7 @@ export var Spanish = {
             "Diciembre",
         ],
     },
-    ordinal: function () {
+    ordinal: () => {
         return "º";
     },
     firstDayOfWeek: 1,

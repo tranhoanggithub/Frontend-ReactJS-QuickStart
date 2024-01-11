@@ -5,6 +5,8 @@ import { getAllCodeService } from '../../../services/userService';
 import { LANGUAGES } from "../../../utils";
 import * as actions from "../../../store/actions"
 import './UserRedux.scss'
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 class UserRedux extends Component {
 
     constructor(props) {
@@ -14,6 +16,7 @@ class UserRedux extends Component {
             positionArr: [],
             roleArr: [],
             previewImgURL: '',
+            isOpen: false
         }
     }
 
@@ -54,6 +57,12 @@ class UserRedux extends Component {
             console.log(">>>>>>>>", this.state.previewImgURL)
         }
 
+    }
+    openPreviewImage = () => {
+        if(!this.state.previewImgURL) return;
+        this.setState({
+            isOpen: true
+        })
     }
     render() {
         let genders = this.state.genderArr;
@@ -141,7 +150,7 @@ class UserRedux extends Component {
                                         onChange={(event) => this.handleOnchangeImage(event)}
                                     />
                                     <label className="label-upload" htmlFor="previewImg" >Tải ảnh<i className="fas fa-upload"  ></i></label>
-                                    <div className="preview-image" style={{ backgroundImage: `url(${this.state.previewImgURL})` }}>
+                                    <div className="preview-image" style={{ backgroundImage: `url(${this.state.previewImgURL})` }} onClick={() => this.openPreviewImage()}>
 
                                     </div>
                                 </div>
@@ -153,6 +162,12 @@ class UserRedux extends Component {
                         </div>
                     </div>
                 </div>
+                {this.state.isOpen === true &&
+                    <Lightbox
+                        mainSrc={this.state.previewImgURL}
+                        onCloseRequest={() => this.setState({ isOpen: false })}
+                    />
+                }
             </div>
 
         )

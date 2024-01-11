@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Mandarin = {
+export const Mandarin = {
     weekdays: {
         shorthand: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
         longhand: [

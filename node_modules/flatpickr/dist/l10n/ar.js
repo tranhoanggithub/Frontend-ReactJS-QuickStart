@@ -39,17 +39,7 @@
               "ديسمبر",
           ],
       },
-      firstDayOfWeek: 6,
-      rangeSeparator: " إلى ",
-      weekAbbreviation: "Wk",
-      scrollTitle: "قم بالتمرير للزيادة",
-      toggleTitle: "اضغط للتبديل",
-      amPM: ["ص", "م"],
-      yearAriaLabel: "سنة",
-      monthAriaLabel: "شهر",
-      hourAriaLabel: "ساعة",
-      minuteAriaLabel: "دقيقة",
-      time_24hr: false,
+      rangeSeparator: " - ",
   };
   fp.l10ns.ar = Arabic;
   var ar = fp.l10ns;

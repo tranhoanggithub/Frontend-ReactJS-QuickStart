@@ -1,9 +1,9 @@
-var fp = typeof window !== "undefined" && window.flatpickr !== undefined
+const fp = typeof window !== "undefined" && window.flatpickr !== undefined
     ? window.flatpickr
     : {
         l10ns: {},
     };
-export var Burmese = {
+export const Burmese = {
     weekdays: {
         shorthand: ["နွေ", "လာ", "ဂါ", "ဟူး", "ကြာ", "သော", "နေ"],
         longhand: [
@@ -47,7 +47,7 @@ export var Burmese = {
         ],
     },
     firstDayOfWeek: 1,
-    ordinal: function () {
+    ordinal: () => {
         return "";
     },
     time_24hr: true,

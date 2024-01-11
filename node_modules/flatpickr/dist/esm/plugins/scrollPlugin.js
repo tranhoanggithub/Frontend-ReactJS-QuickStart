@@ -1,70 +1,54 @@
 import { getEventTarget } from "../utils/dom";
 if (typeof window.CustomEvent !== "function") {
-    var CustomEvent_1 = function (typeArg, eventInitDict) {
+    function CustomEvent(typeArg, eventInitDict) {
         eventInitDict = eventInitDict || {
             bubbles: false,
             cancelable: false,
             detail: undefined,
         };
-        var evt = document.createEvent("CustomEvent");
+        const evt = document.createEvent("CustomEvent");
         evt.initCustomEvent(typeArg, eventInitDict.bubbles, eventInitDict.cancelable, eventInitDict.detail);
         return evt;
-    };
-    CustomEvent_1.prototype = window.Event.prototype;
-    window.CustomEvent = CustomEvent_1;
+    }
+    CustomEvent.prototype = window.Event.prototype;
+    window.CustomEvent = CustomEvent;
 }
 function delta(e) {
     return Math.max(-1, Math.min(1, e.wheelDelta || -e.deltaY));
 }
-var scroll = function (e) {
+const scroll = (e) => {
     e.preventDefault();
-    var ev = new CustomEvent("increment", {
+    const ev = new CustomEvent("increment", {
         bubbles: true,
     });
     ev.delta = delta(e);
     getEventTarget(e).dispatchEvent(ev);
 };
 function scrollMonth(fp) {
-    return function (e) {
+    return (e) => {
         e.preventDefault();
-        var mDelta = delta(e);
+        const mDelta = delta(e);
         fp.changeMonth(mDelta);
     };
 }
 function scrollPlugin() {
     return function (fp) {
-        var monthScroller = scrollMonth(fp);
+        const monthScroller = scrollMonth(fp);
         return {
-            onReady: function () {
+            onReady() {
                 if (fp.timeContainer) {
                     fp.timeContainer.addEventListener("wheel", scroll);
                 }
-                if (fp.yearElements) {
-                    fp.yearElements.forEach(function (yearElem) {
-                        return yearElem.addEventListener("wheel", scroll);
-                    });
-                }
-                if (fp.monthElements) {
-                    fp.monthElements.forEach(function (monthElem) {
-                        return monthElem.addEventListener("wheel", monthScroller);
-                    });
-                }
+                fp.yearElements.forEach((yearElem) => yearElem.addEventListener("wheel", scroll));
+                fp.monthElements.forEach((monthElem) => monthElem.addEventListener("wheel", monthScroller));
                 fp.loadedPlugins.push("scroll");
             },
-            onDestroy: function () {
+            onDestroy() {
                 if (fp.timeContainer) {
                     fp.timeContainer.removeEventListener("wheel", scroll);
                 }
-                if (fp.yearElements) {
-                    fp.yearElements.forEach(function (yearElem) {
-                        return yearElem.removeEventListener("wheel", scroll);
-                    });
-                }
-                if (fp.monthElements) {
-                    fp.monthElements.forEach(function (monthElem) {
-                        return monthElem.removeEventListener("wheel", monthScroller);
-                    });
-                }
+                fp.yearElements.forEach((yearElem) => yearElem.removeEventListener("wheel", scroll));
+                fp.monthElements.forEach((monthElem) => monthElem.removeEventListener("wheel", monthScroller));
             },
         };
     };
