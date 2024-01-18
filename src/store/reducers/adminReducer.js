@@ -1,5 +1,5 @@
 import actionTypes from '../actions/actionTypes';
-import { getAllCodeService } from '../../services/userService';
+import { getAllCodeService , createNewUserService} from '../../services/userService';
 
 const initialState = {
     isLoadingGender: false,
@@ -27,7 +27,7 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-        case actionTypes.FETCH_POSITION_FAIDED:
+        case actionTypes.FETCH_POSITION_FAILDED:
             state.position = [];
             return {
                 ...state
@@ -37,7 +37,7 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state
             }
-        case actionTypes.FETCH_ROLE_FAIDED:
+        case actionTypes.FETCH_ROLE_FAILDED:
             state.roles = [];
             return {
                 ...state
