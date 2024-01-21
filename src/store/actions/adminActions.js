@@ -1,4 +1,4 @@
-import { getAllCodeService, createNewUserService } from '../../services/userService';
+import { getAllCodeService, createNewUserService, getAllUsers } from '../../services/userService';
 import actionTypes from './actionTypes';
 
 // export const fetchGenderStart = () => ({
@@ -12,8 +12,9 @@ export const fetchGenderStart = () => {
                 type: actionTypes.FETCH_GENDER_START
             })
             let res = await getAllCodeService("GENDER");
+            console.log('xxxxxxxxxxxxres cua fetchGenderStart la' , res)
             if (res && res.errCode === 0) {
-                console.log('hoidanit check get state', getState)
+
                 dispatch(fetchGenderSuccess(res.data));
             } else {
                 dispatch(fetchGenderFailed());
@@ -88,9 +89,10 @@ export const createNewUser = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await createNewUserService(data);
-            console.log('check create user redux' , res)
+            console.log('check create user redux', res)
             if (res && res.errCode === 0) {
                 dispatch(saveUserSuccess());
+                dispatch(fetchAllUsersStart());
             } else {
                 dispatch(saveUserFailed());
             }
@@ -101,10 +103,38 @@ export const createNewUser = (data) => {
     }
 }
 
-export const saveUserSuccess = () =>({
-    type:'CREATE_USER_SUCCESS'
+export const saveUserSuccess = () => ({
+    type: 'CREATE_USER_SUCCESS'
 })
 
-export const saveUserFailed = () =>({
-    type:'CREATE_USER_FAILDED'
+export const saveUserFailed = () => ({
+    type: 'CREATE_USER_FAILDED'
+})
+
+export const fetchAllUsersStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllUsers("ALL");
+            console.log('xxxxxxxxxxxxres cua fetchAllUsersStart la' , res)
+            if (res && res.errCode === 0) {
+                dispatch(fetchAllUsersSuccess(res.users.reverse()))   ;
+            } else {
+                dispatch(fetchAllUsersFailed());
+            }
+        } catch (e) {
+            dispatch(fetchAllUsersFailed());
+            console.log('fetchAllUsersFailed error', e)
+        }
+    }
+}
+
+export const fetchAllUsersSuccess = (data) => ({
+    type: 'FETCH_ALL_USERS_SUCCESS',
+    users: data
+
+})
+
+export const fetchAllUsersFailed = () => ({
+    type: 'FETCH_ALL_USERS_FAILDED',
+
 })
