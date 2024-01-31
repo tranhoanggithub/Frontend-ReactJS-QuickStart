@@ -18,38 +18,41 @@
         "child2": "Khám từ xa",
         "child3": "Khám tổng quát",
         "child4": "Xét nghiệm y học",
-        "child5": "Sức khỏe tinh thần", 
+        "child5": "Sức khỏe tinh thần",
         "child6": "Khám nha khoa"
     },
     "menu": {
         "admin": {
-            "manage-user":"Người dùng",
-            "manage-doctor":"Quản lý bác sĩ",
-            "manage-admin":"Quản lý admin",
-            "crud":"CRUD user",
-            "crud-redux":"CRUD user",
-            "clinic":"Phòng khám",
-            "manage-clinic":"Quản lí Phòng khám",
-            "specialty":"Chuyên khoa",
-            "manage-specialty":"Quản lý chuyên khoa",
-            "handbook":"Cẩm nang",
-            "manage-handbook":"Quản lý cẩm nang"
+            "manage-user": "Người dùng",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD user",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lí Phòng khám",
+            "specialty": "Chuyên khoa",
+            "manage-specialty": "Quản lý chuyên khoa",
+            "handbook": "Cẩm nang",
+            "manage-handbook": "Quản lý cẩm nang"
         }
     },
-    "manage-user":{
-        "add":"Thêm mới người dùng",
-        "email":"Email",
-        "password":"Mật khẩu",
-        "first-name":"Tên",
-        "last-name":"Họ",
-        "phone-number":"Số điện thoại",
-        "address":"Địa chỉ",
-        "gender":"Giới tính",
-        "position":"Chức danh",
-        "role":"Vai trò",
-        "image":"Ảnh đại diện",
-        "save":"Lưu user",
-        "edit" :"Lưu thay đổi"
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "first-name": "Tên",
+        "last-name": "Họ",
+        "phone-number": "Số điện thoại",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "position": "Chức danh",
+        "role": "Vai trò",
+        "image": "Ảnh đại diện",
+        "save": "Lưu user",
+        "edit": "Lưu thay đổi"
+    },
+    "homepage": {
+        "outstanding-doctor": "Bác sĩ nổi bật tuần qua",
+        "more-infor":"Xem thêm"
     }
 }
-
