@@ -3,7 +3,7 @@ import _ from 'lodash';
 // import config from './config';
 
 const instance = axios.create({
-    baseURL: process.env.REACT_APP_BACKEND_URL,
+    baseURL: 'http://localhost:8080', // Đặt URL của backend cùng với cổng 8080
     withCredentials: true
 });
 
