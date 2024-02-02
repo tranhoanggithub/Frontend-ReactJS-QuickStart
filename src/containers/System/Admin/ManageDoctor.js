@@ -8,6 +8,13 @@ import MdEditor from 'react-markdown-editor-lite';
 // import style manually
 import 'react-markdown-editor-lite/lib/index.css';
 import './ManageDoctor.scss'
+import Select from 'react-select';
+
+const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+];
 
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -17,6 +24,8 @@ class ManageDoctor extends Component {
         this.state = {
             contentMarkdown: '',
             contentHTML: '',
+            selectedDoctor: '',
+            description:'',
         };
     }
 
@@ -26,20 +35,50 @@ class ManageDoctor extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
 
     }
-    handleEditorChange({ html, text }) {
+    handleEditorChange = ({ html, text }) => {
+        this.setState({
+            contentMarkdown: text,
+            contentHTML: html
+        })
         console.log('handleEditorChange', html, text);
     }
     handleSaveContentMarkdown = () => {
-        alert('click me')
+        console.log(">>>>>>>>>>>", this.state)
+    }
+    handleChange = selectedOption => {
+        this.setState({selectedOption});
+    };
+    handleOnChangeDesc = (event) => {
+        this.setState({
+            description: event.target.value
+        })
     }
     render() {
         return (
             <div className="manage-doctor-container">
                 <div className="manage-doctor-title">Tạo thêm thông tin doctors</div>
-                <div className="more-infor"><textarea>sds</textarea></div>
+                <div className="more-infor">
+                    <div className="content-left form-group">
+
+                        <label>Chọn bác sĩ</label>
+                        <Select
+                            value={this.state.selectedOption}
+                            onChange={this.handleChange}
+                            options={options}
+                        />
+                    </div>
+                    <div className="content-right">
+                        <label>Thông tin giới thiệu</label>
+                        <textarea className="form-control" rows="4"
+                            onChange={(event) => this.handleOnChangeDesc(event)}
+                            value={this.state.description}>
+                      
+                        </textarea>
+                    </div>
+                </div>
                 <div className="manage-doctor-editor"><MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={this.handleEditorChange} /></div>
                 <button onClick={() => this.handleSaveContentMarkdown()} className="save-content-doctor">Lưu thông tin</button>
-            </div>
+            </div >
 
         );
     }
