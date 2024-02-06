@@ -27,8 +27,10 @@ class OutStandingDoctor extends Component {
         this.props.loadTopDoctors();
     }
     handleViewDetailDoctor = (doctor) => {
-        console.log('hoidanit chanel view infor:', doctor)
-        this.props.history.push(`/detail-doctor/${doctor.id}`)
+        if(this.props.history){
+            this.props.history.push(`/detail-doctor/${doctor.id}`)
+        }
+
     }
     render() {
         let arrDoctors = this.state.arrDoctors;
