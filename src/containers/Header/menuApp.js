@@ -15,15 +15,22 @@ export const adminMenu = [
                 //     // { name: 'menu.system.system-administrator.register-package-group-or-account', link: '/system/register-package-group-or-account' },
                 // ]
             },
+            // {
+            //     name: 'menu.admin.manage-admin', link: '/system/user-admin'
+            // },
+            //quản lý kế hoạch khám bệnh của bác sĩ
+            // name: 'menu.doctor.manage-schedule',
+
             {
-                name: 'menu.admin.manage-admin', link: '/system/user-admin'
-            },
+                name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
+            }
+
 
             // { name: 'menu.system.system-parameter.header', link: '/system/system-parameter' },
         ]
     },
     { //quản lý phòng khám
-        name: 'menu.admin.clinic', 
+        name: 'menu.admin.clinic',
         menus: [
             {
                 name: 'menu.admin.manage-clinic', link: '/system/user-clinic'
@@ -33,7 +40,7 @@ export const adminMenu = [
         ]
     },
     { //quản lý chuyên khoa
-        name: 'menu.admin.specialty', 
+        name: 'menu.admin.specialty',
         menus: [
             {
                 name: 'menu.admin.manage-specialty', link: '/system/manage-specialty'
@@ -43,7 +50,7 @@ export const adminMenu = [
         ]
     },
     { //quản lý cẩm nang
-        name: 'menu.admin.handbook', 
+        name: 'menu.admin.handbook',
         menus: [
             {
                 name: 'menu.admin.manage-handbook', link: '/system/manage-handbook'
@@ -52,4 +59,16 @@ export const adminMenu = [
             // { name: 'menu.system.system-parameter.header', link: '/system/system-parameter' },
         ]
     },
+];
+
+export const doctorMenu = [
+    {
+        name: 'menu.admin.manage-user',
+        menus: [
+            {
+                name: 'menu.doctor.manage-schedule', link: '/doctor/manage-schedule'
+            },
+        ]
+    }
+
 ];

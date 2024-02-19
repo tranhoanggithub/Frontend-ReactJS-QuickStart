@@ -15,6 +15,9 @@ import HomePage from './HomePage/HomePage.js'
 // import ConfirmModal from '../components/ConfirmModal';
 import CustomScrollbars from '../components/CustomScrollbars';
 import DetailDoctor from './Patient/Doctor/DetailDoctor.js';
+import Doctor from '../routes/Doctor.js';
+
+
 class App extends Component {
 
     handlePersistorState = () => {
@@ -49,12 +52,15 @@ class App extends Component {
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
+                                    <Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
+
                                     <Route path={path.HOMEPAGE} component={HomePage} />
                                     <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
+
                                 </Switch>
                             </CustomScrollbars>
                         </div>
-{/* 
+                        {/* 
                         <ToastContainer
                             className="toast-container" toastClassName="toast-item" bodyClassName="toast-item-body"
                             autoClose={false} hideProgressBar={true} pauseOnHover={false}
@@ -71,7 +77,7 @@ class App extends Component {
                             pauseOnFocusLoss
                             draggable
                             pauseOnHover
-/>
+                        />
                     </div>
                 </Router>
             </Fragment>
