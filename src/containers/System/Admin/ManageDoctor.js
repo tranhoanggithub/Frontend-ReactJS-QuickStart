@@ -17,7 +17,7 @@ import { getDetailInforDoctor } from '../../../services/userService';
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
 class ManageDoctor extends Component {
-    constructor(props) {
+        constructor(props) {
         super(props);
         this.state = {
             contentMarkdown: '',
@@ -70,13 +70,13 @@ class ManageDoctor extends Component {
         console.log('handleEditorChange', html, text);
     }
     handleSaveContentMarkdown = () => {
-        let {hasOldData} = this.state;
+        let { hasOldData } = this.state;
         this.props.saveDetailDoctor({
             contentHTML: this.state.contentHTML,
             contentMarkdown: this.state.contentMarkdown,
             description: this.state.description,
             doctorId: this.state.selectedOption.value,
-            action : hasOldData === true? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE
+            action: hasOldData === true ? CRUD_ACTIONS.EDIT : CRUD_ACTIONS.CREATE
         })
     }
     handleChangeSelect = async (selectedOption) => {

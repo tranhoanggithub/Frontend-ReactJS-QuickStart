@@ -58,6 +58,9 @@
         "outstanding-doctor": "Doctor featured last week",
         "more-infor":"More Infor"
     },
+    "manage-schedule": {
+        "title":"Manage doctors' medical examination plans"
+    },
     "system": {
         "user-manage": {
             "fail-to-load-fouser": "Fail to load system users list",
