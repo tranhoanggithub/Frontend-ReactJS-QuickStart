@@ -144,7 +144,7 @@ class ManageDoctor extends Component {
                 <div className="more-infor">
                     <div className="content-left form-group">
 
-                        <label><FormattedMessage id="admin.mange-doctor.select-doctor" /></label>
+                        <label><FormattedMessage id="admin.manage-doctor.select-doctor" /></label>
                         <Select
                             value={this.state.selectedOption}
                             onChange={this.handleChangeSelect}
@@ -153,7 +153,7 @@ class ManageDoctor extends Component {
                         />
                     </div>
                     <div className="content-right">
-                        <label><FormattedMessage id="admin.mange-doctor.intro" /></label>
+                        <label><FormattedMessage id="admin.manage-doctor.intro" /></label>
                         <textarea className="form-control" rows="4"
                             onChange={(event) => this.handleOnChangeDesc(event)}
                             value={this.state.description}>
