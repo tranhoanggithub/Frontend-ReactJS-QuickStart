@@ -6,7 +6,7 @@ import { Select } from 'react-select/dist/Select-fd7cb895.cjs.prod';
 import moment from 'moment';
 import localization from 'moment/locale/vi';
 import { LANGUAGES } from '../../../utils';
-import { getScheduleDoctorByDate } from '../../../services/userService';
+import { getExtraInforDoctorById } from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
 
 
@@ -16,7 +16,8 @@ class DoctorExtraInfor extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShowDetailInfor: false
+            isShowDetailInfor: false,
+            extraInfor: {}
         }
     }
 
@@ -27,6 +28,17 @@ class DoctorExtraInfor extends Component {
         if (this.props.language !== prevProps.language) {
 
         }
+        if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
+            let res = await getExtraInforDoctorById(this.props.doctorIdFromParent);
+            if (res && res.errCode === 0) {
+                this.setState({
+                    extraInfor: res.data
+                })
+            }
+            this.setState({
+                extraInfor: res.data
+            })
+        }
     }
 
     isShowDetailInfor = (status) => {
@@ -35,20 +47,19 @@ class DoctorExtraInfor extends Component {
         })
     }
     render() {
-        let { allDays, allAvalableTime } = this.state;
-        let { language } = this.props;
-        let { isShowDetailInfor } = this.state;
+        let { isShowDetailInfor, extraInfor } = this.state;
+        console.log("ooooooooooooo", this.state)
         return (
             <div className="doctor-extra-infor-container">
                 <div className="content-up">
                     <div className="text-address">ĐỊA CHỈ KHÁM</div>
-                    <div className="name-clinic">Phòng khám chuyên khoa Da Liễu</div>
-                    <div className="detail-address">207 Phố Huế - Hai Bà Trưng - Hà Nội</div>
+                    <div className="name-clinic">{extraInfor && extraInfor.nameClinic ? extraInfor.nameClinic : ''}</div>
+                    <div className="detail-address">{extraInfor && extraInfor.addressClinic ? extraInfor.addressClinic : ''}</div>
                 </div>
                 <div className="content-down">
                     {isShowDetailInfor === false &&
                         <div className="short-infor">
-                            GIÁ KHÁM : 250.000 đ <span onClick={() => this.isShowDetailInfor(true)}>Xem chi tiết</span>
+                            GIÁ KHÁM : {extraInfor && extraInfor.priceTypeData ? extraInfor.priceTypeData.valueVi : ''} <span onClick={() => this.isShowDetailInfor(true)}>Xem chi tiết</span>
                         </div>
                     }
                     {isShowDetailInfor === true &&
