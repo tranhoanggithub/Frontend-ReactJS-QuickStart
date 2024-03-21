@@ -148,21 +148,28 @@
             "no-schedule": "Doctors do not have appointments during this time, please choose another time!",
             "choose": "Choose ",
             "book-free": " and book (free)"
+        },
+        "extra-infor-doctor": {
+            "text-address": "Explore addresses",
+            "price": "Discovery price:",
+            "detail": "See details",
+            "payment": "Patients can calculate costs using the expression:",
+            "hide-price": "Hide price list"
         }
     },
     "admin": {
         "manage-doctor": {
             "title": "Create more doctors information",
-            "select-doctor":"Select doctor",
-            "intro":"Introduction",
-            "add":"Create infor",
-            "save":"Save infor",
-            "price":"Price",
-            "payment":"Payment",
-            "province":"Province",
-            "nameClinic":"Clinic's name",
-            "addressClinic":"Clinic's address",
-            "note":"Note"
+            "select-doctor": "Select doctor",
+            "intro": "Introduction",
+            "add": "Create infor",
+            "save": "Save infor",
+            "price": "Price",
+            "payment": "Payment",
+            "province": "Province",
+            "nameClinic": "Clinic's name",
+            "addressClinic": "Clinic's address",
+            "note": "Note"
         }
     }
 }

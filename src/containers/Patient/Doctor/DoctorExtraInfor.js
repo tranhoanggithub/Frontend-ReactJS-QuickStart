@@ -8,6 +8,7 @@ import localization from 'moment/locale/vi';
 import { LANGUAGES } from '../../../utils';
 import { getExtraInforDoctorById } from '../../../services/userService';
 import { FormattedMessage } from 'react-intl';
+import NumberFormat from 'react-number-format';
 
 
 
@@ -48,34 +49,85 @@ class DoctorExtraInfor extends Component {
     }
     render() {
         let { isShowDetailInfor, extraInfor } = this.state;
+        let { language } = this.props;
         console.log("ooooooooooooo", this.state)
         return (
             <div className="doctor-extra-infor-container">
                 <div className="content-up">
-                    <div className="text-address">ĐỊA CHỈ KHÁM</div>
+                    <div className="text-address">
+                        <FormattedMessage id="patient.extra-infor-doctor.text-address" />
+                    </div>
                     <div className="name-clinic">{extraInfor && extraInfor.nameClinic ? extraInfor.nameClinic : ''}</div>
                     <div className="detail-address">{extraInfor && extraInfor.addressClinic ? extraInfor.addressClinic : ''}</div>
                 </div>
                 <div className="content-down">
                     {isShowDetailInfor === false &&
                         <div className="short-infor">
-                            GIÁ KHÁM : {extraInfor && extraInfor.priceTypeData ? extraInfor.priceTypeData.valueVi : ''} <span onClick={() => this.isShowDetailInfor(true)}>Xem chi tiết</span>
+                            <FormattedMessage id="patient.extra-infor-doctor.price" />
+                            {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.VI
+                                &&
+                                <NumberFormat
+                                    className="currency"
+                                    value={extraInfor.priceTypeData.valueVi}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={'VNĐ'}
+                                />
+
+                            }
+                            {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.EN
+                                &&
+                                <NumberFormat
+                                    className="currency"
+                                    value={extraInfor.priceTypeData.valueEn}
+                                    displayType={'text'}
+                                    thousandSeparator={true}
+                                    suffix={'$'}
+                                />
+                            }
+
+                            <span className="detail" onClick={() => this.isShowDetailInfor(true)}> <FormattedMessage id="patient.extra-infor-doctor.detail" /></span>
                         </div>
                     }
                     {isShowDetailInfor === true &&
                         <>
-                            <div className="title-price">GÍA KHÁM:.</div>
+                            <div className="title-price"> <FormattedMessage id="patient.extra-infor-doctor.price" /></div>
                             <div className="detail-infor">
                                 <div className="price">
-                                    <span className="left">Gía khám</span>
-                                    <span className="right">250.000 đ</span>
+                                    <span className="left"> <FormattedMessage id="patient.extra-infor-doctor.price" /></span>
+                                    <span className="right">
+                                        {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.VI
+                                            &&
+                                            <NumberFormat
+                                                className="currency"
+                                                value={extraInfor.priceTypeData.valueVi}
+                                                displayType={'text'}
+                                                thousandSeparator={true}
+                                                suffix={'VNĐ'}
+                                            />
+
+                                        }
+                                        {extraInfor && extraInfor.priceTypeData && language === LANGUAGES.EN
+                                            &&
+                                            <NumberFormat
+                                                className="currency"
+                                                value={extraInfor.priceTypeData.valueEn}
+                                                displayType={'text'}
+                                                thousandSeparator={true}
+                                                suffix={'$'}
+                                            />
+                                        }
+                                    </span>
                                 </div>
                                 <div className="note">
-                                    Gía khám Được ưu tiên khám trước khi đặt khám qua Booking Care . Gía khám cho người nước ngoài là 250.000 đ
+                                    {extraInfor && extraInfor.note ? extraInfor.note : ''}
                                 </div>
                             </div>
-                            <div className="payment">Người bệnh có thể thanh toán chi phí bằng hình thức tiền mặt hoặc quẹt thẻ</div>
-                            <div className="hide-price"><span onClick={() => this.isShowDetailInfor(false)}>Ẩn bảng giá</span></div>
+                            <div className="payment">   <FormattedMessage id="patient.extra-infor-doctor.payment" />
+                                {extraInfor && extraInfor.paymentTypeData && language === LANGUAGES.VI ? extraInfor.paymentTypeData.valueVi : ''}
+                                {extraInfor && extraInfor.paymentTypeData && language === LANGUAGES.EN ? extraInfor.paymentTypeData.valueEn : ''}
+                            </div>
+                            <div className="hide-price"><span onClick={() => this.isShowDetailInfor(false)}>   <FormattedMessage id="patient.extra-infor-doctor.hide-price" /></span></div>
                         </>
                     }
                 </div>
